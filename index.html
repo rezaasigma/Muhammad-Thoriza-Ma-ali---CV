@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Muhammad Thoriza Ma'ali</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0ef;
+            --secondary-color: #ff2d75;
+            --dark-bg: #0c1022;
+            --darker-bg: #080c1c;
+            --card-bg: rgba(15, 23, 42, 0.8);
+        }
+        
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: var(--dark-bg);
+            color: #fff;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(14, 239, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 70%, rgba(255, 45, 117, 0.05) 0%, transparent 20%);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .navbar {
+            background-color: rgba(8, 12, 28, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(14, 239, 255, 0.2);
+        }
+        
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), transparent);
+            border-radius: 3px;
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(14, 239, 255, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+            margin-bottom: 20px;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(14, 239, 255, 0.2);
+            border-color: var(--primary-color);
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 20px var(--primary-color);
+        }
+        
+        .bg-custom {
+            background-color: var(--darker-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .skill-item, .interest-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 5px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            color: white;
+        }
+        
+        .skill-item:hover, .interest-item:hover {
+            background: rgba(14, 239, 255, 0.1);
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+        
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .portfolio-item img {
+            transition: transform 0.5s ease;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(8, 12, 28, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .social-icon:hover {
+            background: rgba(14, 239, 255, 0.2);
+            color: var(--primary-color);
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+        }
+        
+        .neon-border {
+            border: 1px solid var(--primary-color);
+            box-shadow: 0 0 10px var(--primary-color), inset 0 0 10px var(--primary-color);
+        }
+        
+        .timeline {
+            border-left: 2px solid var(--primary-color);
+            border-bottom-right-radius: 4px;
+            border-top-right-radius: 4px;
+            position: relative;
+            margin: 20px 0;
+            padding: 0 0 0 30px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            left: -39px;
+            top: 0;
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--darker-bg);
+            border-top: 1px solid rgba(14, 239, 255, 0.2);
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        
+        /* Animasi teks berkedip */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .blink {
+            animation: blink 2s infinite;
+        }
+        
+        /* Efek partikel */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Skill section styles */
+        .skill-card .card-title {
+            color: white;
+        }
+        
+        .skill-card .card-body {
+            color: white;
+        }
+
+        /* Portfolio link styles */
+        .portfolio-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-link:hover {
+            color: #fff;
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Partikel Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Navigasi -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand glow-text" href="#">
+                <i class="fas fa-code me-2"></i>Muhammad Thoriza Ma'ali
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#minat">Minat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sosmed">Sosial Media</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bagian Pengenalan -->
+    <section id="home" class="py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-center mb-4">
+                    <img src="https://via.placeholder.com/300" class="profile-img rounded-circle" alt="Profile Picture">
+                </div>
+                <div class="col-lg-8">
+                    <div class="bg-custom">
+                        <h1 class="glow-text">Muhammad Thoriza Ma'ali</h1>
+                        <p class="text-primary blink">Creative Content Creator & Game Developer</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <p><i class="fas fa-birthday-cake me-2"></i> <strong>Lahir:</strong> 7 Desember 2008</p>
+                                <p><i class="fas fa-map-marker-alt me-2"></i> <strong>Alamat:</strong> Banjarnegara, Jawa tengah</p>
+                                <p><i class="fas fa-phone me-2"></i> <strong>No. Telp:</strong> 089692877792</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><i class="fas fa-envelope me-2"></i> <strong>Email:</strong> thorizamaali@gmail.com</p>
+                                <p><i class="fas fa-graduation-cap me-2"></i> <strong>Pendidikan:</strong> SMK/Sedderajat</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Skills -->
+    <section id="skills" class="py-5 bg-dark">
+        <div class="container py-5">
+            <h2 class="section-title text-center mb-5">Skills</h2>
+            
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="fas fa-video me-2"></i> Video Editing</h4>
+                            <div class="mt-3">
+                                <span class="skill-item">CapCut</span>
+                                <span class="skill-item">Alight Motion</span>
+                                <span class="skill-item">KineMaster</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 skill-card">
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="fas fa-gamepad me-2"></i> Game Development</h4>
+                            <div class="mt-3">
+                                <span class="skill-item">Pixel Art</span>
+                                <span class="skill-item">Game 2D Development</span>
+                                <span class="skill-item">Simple Pixel Projects</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Minat -->
+    <section id="minat" class="py-5">
+        <div class="container py-5">
+            <h2 class="section-title text-center mb-5">Minat</h2>
+            
+            <div class="text-center">
+                <span class="interest-item m-2"><i class="fas fa-gamepad me-2"></i> Bermain Game</span>
+                <span class="interest-item m-2"><i class="fas fa-video me-2"></i> Edit Video</span>
+                <span class="interest-item m-2"><i class="fas fa-code me-2"></i> Membuat Game</span>
+                <span class="interest-item m-2"><i class="fas fa-paint-brush me-2"></i> Membuat Pixel Art</span>
+                <span class="interest-item m-2"><i class="fab fa-youtube me-2"></i> Membuat Konten YouTube</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Portfolio -->
+    <section id="portfolio" class="py-5 bg-dark">
+        <div class="container py-5">
+            <h2 class="section-title text-center mb-5">Portfolio</h2>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="portfolio-item neon-border">
+                        <img src="image.png" alt="Project 1">
+                        <div class="portfolio-overlay">
+                            <div class="text-center">
+                                <h4>Video Editing Project</h4>
+                                <p class="text-white">Video travel vlog menggunakan CapCut</p>
+                                <a href="https://youtube.com/shorts/7irK3jqUH1k?si=9KQdSF9UpdCp7aMQ" target="_blank" class="btn btn-primary mt-2">Lihat Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <h5 class="text-white">Project Video Editing</h5>
+                        <p class="text-muted">Video travel vlog yang diedit menggunakan CapCut dengan efek transisi yang smooth.</p>
+                        <a href="https://youtube.com/shorts/7irK3jqUH1k?si=9KQdSF9UpdCp7aMQ" target="_blank" class="portfolio-link">
+                            <i class="fab fa-youtube me-1"></i> Tonton di YouTube
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="portfolio-item neon-border">
+                        <img src="Slime-1.png" alt="Project 2">
+                        <div class="portfolio-overlay">
+                            <div class="text-center">
+                                <h4>Pixel Art Creation</h4>
+                                <p class="text-white">Karakter pixel art untuk game 2D</p>
+                                <a href="https://www.instagram.com/p/DNIusxbz-1c/?igsh=MWh5Y3g1aTJwdmFkbA==" target="_blank" class="btn btn-primary mt-2">Lihat Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <h5 class="text-white">Pixel Art Character</h5>
+                        <p class="text-muted">Karakter pixel art dengan tema fantasi yang dibuat untuk game 2D adventure.</p>
+                        <a href="https://www.instagram.com/p/DNIusxbz-1c/?igsh=MWh5Y3g1aTJwdmFkbA==" target="_blank" class="portfolio-link">
+                            <i class="fab fa-instagram me-1"></i> Lihat di Instagram
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="portfolio-item neon-border">
+                        <img src="WhatsApp Image 2025-08-08 at 20.01.38_6c037d5b.jpg" alt="Project 3">
+                        <div class="portfolio-overlay">
+                            <div class="text-center">
+                                <h4>2D Game Project</h4>
+                                <p class="text-white">Game platformer sederhana dengan tema pixel</p>
+                                <a href="https://github.com/rezaasigma/slime" target="_blank" class="btn btn-primary mt-2">Lihat Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <h5 class="text-white">Pixel Platformer Game</h5>
+                        <p class="text-muted">Game platform 2D dengan mekanik lompat dan puzzle sederhana.</p>
+                        <a href="https://github.com/rezaasigma/slime" target="_blank" class="portfolio-link">
+                            <i class="fab fa-github me-1"></i> Lihat di GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-outline-primary">Lihat Lebih Banyak</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Sosial Media -->
+    <section id="sosmed" class="py-5">
+        <div class="container py-5">
+            <h2 class="section-title text-center mb-5">Sosial Media</h2>
+            
+            <div class="text-center">
+                <a href="https://www.youtube.com/@RezaaRawr target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/rezzzsaa7?igsh=MXB0dXpudTg3eXg5aw==" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/rezaasigma" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/muhammad-thoriza-ma-ali-91861237b/" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            
+            <div class="text-center mt-4">
+                <p class="text-muted">Terhubung dengan saya melalui sosial media</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2025 Curriculum Vitae - Muhammad Thoriza Ma'ali. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap & JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Inisialisasi partikel background
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#0ef"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": true
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#0ef",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    }
+                },
+                "retina_detect": true
+            });
+        });
+        
+        // Smooth scrolling untuk navigasi
+        document.querySelectorAll('a.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
